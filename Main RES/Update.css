@@ -210,21 +210,6 @@ yt-live-chat-text-message-renderer yt-live-chat-author-chip #author-name {
     line-height: 28px !important;
     z-index: 2 !important;
 }
-/*yt-live-chat-text-message-renderer #content::before {
-    position: absolute;
-    content: "";
-    width: calc(100% + 60px);
-    height: calc(100% + 60px);
-    background-image: 
-    url("https://github.com/AdithepKuraphong/CSS_RES/blob/main/Bars/Bar-User-03.png?raw=true"); [[[[[Lotus Bars user test]]]]
-    background-repeat: no-repeat;
-    background-size: auto 70px, auto 92px;
-    background-position-x: calc(90% - 80px);
-    background-position-y: calc(90% - 40px);
-    top: 0px;
-    left: -15px;
-    z-index: 1;
-}*/
 
 yt-live-chat-text-message-renderer[author-type="owner"] #author-name {
     box-shadow: inset 0 0 0 1000px #E0DBE8 !important; /*Role color !important*/
@@ -312,7 +297,7 @@ yt-live-chat-text-message-renderer[is-highlighted] #message {
     background-color: rgba(0, 0, 0, 0.703) !important;
 
     border-bottom: 8px solid transparent;
-    border-image: linear-gradient(0.2turn, #62AD9E,#62AD9E, rgba(255,0,128));
+    border-image: linear-gradient(0.08turn, #62AD9E,#62AD9E, #DDB176);
     border-image-slice: 1;
     padding: 2em 1em 2em 2em;
     z-index: -1;
@@ -381,16 +366,16 @@ yt-live-chat-text-message-renderer[is-highlighted] #content:after {
     content: "";
     display: block;
     position: absolute;
-    left: -0.4em;
-    bottom: 0.1em;
-    height: 66.83px;
-    width: 41.33px;
-    background-image: url(''); /*Chat Icon*/
+    right: 0.78em;
+    bottom: 0.03em;
+    height: 110px;
+    width: 90px;
+    background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Lotus/Lotus-normal-08-08.png?raw=true'); /*Chat Icon*/
     background-repeat: no-repeat;
     background-size: 100% 100%;
     box-sizing: border-box;
-    z-index: 2 !important;
+    /* z-index: 2 !important;
     transform: rotate(-18deg);
     transform-origin: center bottom;
-    animation: Ldec2 0.8s infinite ease-in-out alternate;
+    animation: Ldec2 0.8s infinite ease-in-out alternate; */
 }
