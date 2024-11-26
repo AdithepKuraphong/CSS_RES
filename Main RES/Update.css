@@ -249,7 +249,12 @@ yt-live-chat-text-message-renderer[author-type="moderator"] #author-name:before 
     animation: Ldec1 1s ease-out;
 } 
 yt-live-chat-text-message-renderer[author-type="moderator"] #message {
-    border: solid 1px #EDB4BA !important;
+    /* border: solid 1px #EDB4BA !important; */
+    border-bottom: 8px solid transparent;
+    border-image: linear-gradient(0.08turn, #EDB4BA,#EDB4BA, #00ffcc);
+    border-image-slice: 1;
+    padding: 2em 1em 2em 2em;
+    z-index: -1;
 }
 
 
@@ -331,8 +336,8 @@ yt-live-chat-text-message-renderer[is-highlighted] #author-name:after {
     display: block;
     right: -0.5em;
     bottom: -2.5em;
-    height: 80px;
-    width: 18px;
+    height: 88px;
+    width: 24px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-Trim-Member-06.png?raw=true');/* 3pins Icon */
     background-repeat: no-repeat;
     background-size: 100% 100%;
