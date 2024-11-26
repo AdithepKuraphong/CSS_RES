@@ -251,10 +251,22 @@ yt-live-chat-text-message-renderer[author-type="moderator"] #author-name:before 
 yt-live-chat-text-message-renderer[author-type="moderator"] #message {
     /* border: solid 1px #EDB4BA !important; */
     border-bottom: 8px solid transparent;
-    border-image: linear-gradient(0.08turn, #EDB4BA,#EDB4BA, #00ffcc);
+    border-image: linear-gradient(0.25turn, #EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA,#EDB4BA, #8C9D8D);
     border-image-slice: 1;
     padding: 2em 1em 2em 2em;
     z-index: -1;
+}
+yt-live-chat-text-message-renderer[author-type="moderator"] #message:after{ /*TOP bar code plz move to member*/
+    position: absolute;
+    content: "";
+    width: 110%;
+    height: 100%;
+    background: url("https://github.com/AdithepKuraphong/CSS_RES/blob/main/Headers/Header-Member-07.png?raw=true");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: -70px;
+    z-index: 20;
 }
 
 
@@ -277,7 +289,11 @@ yt-live-chat-text-message-renderer[author-type="member"] #author-name:before {
     animation: Ldec1 1s ease-out;
 } 
 yt-live-chat-text-message-renderer[author-type="member"] #message {
-    border: solid 1px #DDB176 !important;
+    border-bottom: 8px solid transparent;
+    border-image: linear-gradient(0.25turn, #DDB176,#DDB176,#DDB176,#DDB176,#DDB176,#DDB176,#DDB176,#DDB176,#8C9D8D, #8C9D8D);
+    border-image-slice: 1;
+    padding: 2em 1em 2em 2em;
+    z-index: -1;
 }
 
 yt-live-chat-text-message-renderer yt-live-chat-author-badge-renderer {
@@ -300,9 +316,10 @@ yt-live-chat-text-message-renderer[is-highlighted] #message {
     font-size: 30px !important;
     line-height: 34px !important;
     background-color: rgba(0, 0, 0, 0.703) !important;
-
-    border-bottom: 8px solid transparent;
-    border-image: linear-gradient(0.08turn, #62AD9E,#62AD9E, #DDB176);
+    border: solid 1px #62AD9E;
+    border-bottom-width: 8px;
+    border-bottom-color: transparent;
+    border-image: linear-gradient(to bottom right, #62AD9E,#62AD9E,#62AD9E,#62AD9E,#62AD9E,#62AD9E,#62AD9E,#62AD9E,#62AD9E, #8B9D8D);
     border-image-slice: 1;
     padding: 2em 1em 2em 2em;
     z-index: -1;
@@ -335,7 +352,7 @@ yt-live-chat-text-message-renderer[is-highlighted] #author-name:after {
     position: absolute;
     display: block;
     right: -0.5em;
-    bottom: -2.5em;
+    bottom: -2.8em;
     height: 88px;
     width: 24px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-Trim-Member-06.png?raw=true');/* 3pins Icon */
