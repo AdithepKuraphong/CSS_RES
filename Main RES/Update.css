@@ -15,22 +15,17 @@
 
 @keyframes Ldec1 {
     0% {
-        transform-origin: bottom center;
+        transform-origin: center center;
         transform: scale(0) rotate(0);
     }
 
     75% {
-        transform-origin: bottom center;
+        transform-origin: center center;
         transform: scale(0) rotate(0);
     }
 
-    95% {
-        transform-origin: bottom center;
-        transform: scale(1.03) rotate(15deg);
-    }
-
     100% {
-        transform-origin: bottom center;
+        transform-origin: center center;
         transform: scale(1) rotate(0);
     }
 }
@@ -112,7 +107,7 @@ yt-live-chat-membership-message-renderer #content {
     overflow: initial !important;
     position: relative;
     width: calc(100% - 180px);
-    border: solid 2px green;
+    /* border: solid 2px green; */
     margin-bottom: 20px;
     padding: 0 1.5em;
 }
@@ -230,10 +225,7 @@ yt-reaction-control-panel-overlay-view-model {
 
 yt-live-chat-author-chip {
     position: relative;
-    justify-items: start;
-    align-items: start;
-    justify-content: start;
-    text-align: left;
+    display: grid;
     background-color: transparent !important;
     top: 0em;
     left: 0;
@@ -245,7 +237,8 @@ yt-live-chat-author-chip {
     transform-origin: center top;
 }
 
-yt-live-chat-text-message-renderer yt-live-chat-author-chip #author-name {
+yt-live-chat-text-message-renderer #author-name {
+    display: block;
     vertical-align: middle;
     box-shadow: inset 0 0 0 1000px #62AD9E !important;
     /*Role color !important*/
@@ -253,6 +246,7 @@ yt-live-chat-text-message-renderer yt-live-chat-author-chip #author-name {
     padding: 7px 10px;
     overflow: hidden;
     color: black !important;
+    margin-left: 0 !important;
     letter-spacing: 1px;
     font-family: 'Allrounder Monument Test', sans-serif !important;
     font-size: 21pt !important;
@@ -260,27 +254,122 @@ yt-live-chat-text-message-renderer yt-live-chat-author-chip #author-name {
     line-height: 28px !important;
     z-index: 2 !important;
 }
+yt-live-chat-text-message-renderer{
+    justify-content: center;
+    padding: 0;
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"]{
+    background-image: 
+    url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-bar-05.png?raw=true'),
+    url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-bar-05.png?raw=true');
+    background-position: top center, bottom center;
+    background-size: 85% auto, 85% auto;
+    padding: 0.8em 0 1.2em 0;
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"] #content {
+    /*Content Box(for Owner only!)*/
+    display: inline-block;
+    overflow: initial !important;
+    position: relative;
+    width: calc(100% - 180px);
+    /* border: solid 2px rgb(255, 63, 63); */
+    padding: 0 1.5em;
+}
 
 yt-live-chat-text-message-renderer[author-type="owner"] #author-name {
     box-shadow: inset 0 0 0 1000px #E0DBE8 !important;
+    padding: 7px 10px !important;
+    justify-self: end !important;
     /*Role color !important*/
 }
 
-yt-live-chat-text-message-renderer[author-type="owner"] #author-name::after {
+yt-live-chat-text-message-renderer[author-type="owner"] #author-name:before {
     content: "";
     position: absolute;
     display: block;
-    left: -1.5em;
-    bottom: 15px;
-    height: 60px;
-    width: 60px;
+    right: -1.5em;
+    bottom: -3.4em;
+    height: 80px;
+    width: 80px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Icons/Icon-Owner-02.png?raw=true');
-    /* owner Icon */
+    /* Owner Icon */
     background-repeat: no-repeat;
     background-size: 100% 100%;
     box-sizing: border-box;
     z-index: 2;
     animation: Ldec1 1s ease-out;
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"] #message::before {
+    /*TOP bar code for owner*/
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    width: 110%;
+    height: 30px;
+    background: url("https://github.com/AdithepKuraphong/CSS_RES/blob/main/Headers/Header-Owner-07.png?raw=true");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 100%;
+    z-index: 20;
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"] #message {
+    /*Mod circular*/
+    background:
+        radial-gradient(circle 44px at 100% 77px, #E0DBE8 99%, #0000);
+    background-origin: border-box;
+    -webkit-mask:
+        radial-gradient(circle 42.5px at 100% 77px, #0000 99%, #E0DBE8) left;
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    border-bottom: 8px solid transparent;
+    border-image: linear-gradient(0.25turn, #8C9D8D 0%, #E0DBE8 40%, #E0DBE8 100%);
+    border-image-slice: 1;
+    text-align: right;
+    z-index: -1;
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"] #content:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0.65em;
+    bottom: 0.1em;
+    height: 110px;
+    width: 90px;
+    background-image: 
+    url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Lotus/Lotus-owner-08.png?raw=true');
+    /*Chat Icon*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    /* z-index: 2 !important;
+    transform: rotate(-18deg);
+    transform-origin: center bottom;
+    animation: Ldec2 0.8s infinite ease-in-out alternate; */
+}
+
+yt-live-chat-text-message-renderer[author-type="owner"] #author-name:after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: -0.4em;
+    bottom: -1.95em;
+    height: 70px;
+    width: 18px;
+    background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-Trim-Owner-06.png?raw=true');
+    /*Owner 3pins Icon */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    /* transform: rotate(20deg);
+    transform-origin: center bottom;
+    animation: Rdec2 0.7s infinite ease-in-out alternate; */
 }
 
 yt-live-chat-text-message-renderer[author-type="moderator"] #author-name {
@@ -293,9 +382,9 @@ yt-live-chat-text-message-renderer[author-type="moderator"] #author-name:before 
     position: absolute;
     display: block;
     left: -1.5em;
-    bottom: 15px;
-    height: 60px;
-    width: 60px;
+    bottom: -3.45em;
+    height: 80px;
+    width: 80px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Icons/Icon-Mod-02.png?raw=true');
     /* Mod Icon */
     background-repeat: no-repeat;
@@ -306,25 +395,18 @@ yt-live-chat-text-message-renderer[author-type="moderator"] #author-name:before 
 }
 
 yt-live-chat-text-message-renderer[author-type="moderator"] #message {
-    /* border: solid 1px #EDB4BA !important; */
+    /*Mod circular*/
+    background:
+        radial-gradient(circle 44px at 0% 77px, #EDB4BA 99%, #0000);
+    background-origin: border-box;
+    -webkit-mask:
+        radial-gradient(circle 42.5px at 0% 77px, #0000 99%, #EDB4BA) left;
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
     border-bottom: 8px solid transparent;
-    border-image: linear-gradient(0.25turn, #EDB4BA 0%, #EDB4BA 65%, #8C9D8D 100%);
+    border-image: linear-gradient(0.25turn, #EDB4BA 0%, #EDB4BA 60%, #8C9D8D 100%);
     border-image-slice: 1;
     z-index: -1;
-}
-
-yt-live-chat-text-message-renderer[author-type="moderator"] #message:after {
-    /*TOP bar code plz move to member*/
-    position: absolute;
-    content: "";
-    width: 110%;
-    height: 100%;
-    background: url("https://github.com/AdithepKuraphong/CSS_RES/blob/main/Headers/Header-Member-07.png?raw=true");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    top: -59px;
-    z-index: 20;
 }
 
 
@@ -338,9 +420,9 @@ yt-live-chat-text-message-renderer[author-type="member"] #author-name:before {
     position: absolute;
     display: block;
     left: -1.5em;
-    bottom: 15px;
-    height: 60px;
-    width: 60px;
+    bottom: -3.45em;
+    height: 80px;
+    width: 80px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Icons/Icon-Member-02.png?raw=true');
     /* Member Icon */
     background-repeat: no-repeat;
@@ -352,7 +434,36 @@ yt-live-chat-text-message-renderer[author-type="member"] #author-name:before {
 
 yt-live-chat-text-message-renderer[author-type="member"] #message {
     border-bottom: 8px solid transparent;
-    border-image: linear-gradient(0.25turn, #DDB176 0%, #DDB176 65%, #8C9D8D 100%);
+    border-image: linear-gradient(0.25turn, #DDB176 0%, #DDB176 60%, #8C9D8D 100%);
+    border-image-slice: 1;
+    z-index: -1;
+}
+
+yt-live-chat-text-message-renderer[author-type="member"] #message::before {
+    /*TOP bar code for member*/
+    position: absolute;
+    content: "";
+    top: 0px;
+    width: 110%;
+    height: 30px;
+    background: url("https://github.com/AdithepKuraphong/CSS_RES/blob/main/Headers/Header-Member-07.png?raw=true");
+    background-repeat: repeat-x;
+    background-position: center;
+    background-size: auto 100%;
+    z-index: 20;
+}
+
+yt-live-chat-text-message-renderer[author-type="member"] #message {
+    /* Member circular*/
+    background:
+        radial-gradient(circle 44px at 0% 77px, #DDB176 99%, #0000);
+    background-origin: border-box;
+    -webkit-mask:
+        radial-gradient(circle 42.5px at 0% 77px, #0000 99%, #DDB176) left;
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    border-bottom: 8px solid transparent;
+    border-image: linear-gradient(0.25turn, #DDB176 0%, #DDB176 60%, #8C9D8D 100%);
     border-image-slice: 1;
     z-index: -1;
 }
@@ -376,18 +487,11 @@ yt-live-chat-text-message-renderer[is-highlighted] #message {
     letter-spacing: 1px;
     font-size: 30px !important;
     line-height: 34px !important;
-    background-color: rgba(0, 0, 0, 0.703) !important;
-    background:
-        radial-gradient(circle 44px at 0% 77px, #62AD9E 99%, #0000);
-    background-origin: border-box;
-    -webkit-mask:
-        radial-gradient(circle 42px at 0% 77px, #0000 99%, #62AD9E) left;
-    -webkit-mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5) !important;
     border: solid 1px #62AD9E;
     border-bottom-width: 8px;
     border-bottom-color: transparent;
-    border-image: linear-gradient(to bottom right, #62AD9E 0%, #62AD9E 65%, #8B9D8D 100%);
+    border-image: linear-gradient(to bottom right, #62AD9E 0%, #62AD9E 60%, #8B9D8D 100%);
     border-image-slice: 1;
     padding: 2em 2em 1.5em 2em;
     z-index: -1;
@@ -397,33 +501,15 @@ yt-live-chat-text-message-renderer[is-highlighted] #message {
     color: #92738f !important;
 }
 
-yt-live-chat-text-message-renderer #author-name:before,
-yt-live-chat-text-message-renderer[is-highlighted] #author-name:before {
-    content: "";
-    position: absolute;
-    display: block;
-    left: -1.5em;
-    bottom: 15px;
-    height: 60px;
-    width: 60px;
-    background-image: url('');
-    /* Author Icon */
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    box-sizing: border-box;
-    z-index: 2;
-    animation: Ldec1 1s ease-out;
-}
-
 yt-live-chat-text-message-renderer #author-name:after,
 yt-live-chat-text-message-renderer[is-highlighted] #author-name:after {
     content: "";
     position: absolute;
     display: block;
-    right: -0.5em;
-    bottom: -2.8em;
-    height: 88px;
-    width: 24px;
+    right: -0.55em;
+    bottom: -1.95em;
+    height: 70px;
+    width: 18px;
     background-image: url('https://github.com/AdithepKuraphong/CSS_RES/blob/main/Decos/Decos-Trim-Member-06.png?raw=true');
     /* 3pins Icon */
     background-repeat: no-repeat;
